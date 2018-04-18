@@ -1,0 +1,39 @@
+﻿<Window x:Class="DifferentialTransmissionSimulator.View.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DifferentialTransmissionSimulator.View"
+        xmlns:v="clr-namespace:DifferentialTransmissionSimulator.View"
+        mc:Ignorable="d"
+        Title="MainView" Height="300" Width="300">
+    <DockPanel LastChildFill="True" DataContext="{Binding MainViewModel, Source={StaticResource Locator}}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <!--<Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>-->
+
+            <StackPanel Grid.Column="0" Margin="2,2,10,2">
+                <v:DataToSendView Margin="0,0,0,5"/>
+                <v:InterferenceView Margin="0,0,0,5"/>
+                <Button Content="START" Command="{Binding StartCommand}" />
+            </StackPanel>
+            <StackPanel Grid.Column="1" Margin="0,0,2,0">
+                <v:BitsChart1View Margin="0,0,0,50" Height="100"/>
+                <v:BitsChart2View Margin="0,0,0,50" Height="100"/>
+                <v:InterferenceChartView Margin="0,0,0,50" Height="200"/>
+                <v:BitsChartOut1View Margin="0,0,0,50" Height="100"/>
+                <v:BitsChartOut2View Margin="0,0,0,50" Height="100"/>
+                <v:OutputChartView Margin="0,0,0,50" Height="100"/>
+            </StackPanel>
+
+        </Grid>
+    </DockPanel>
+</Window>
