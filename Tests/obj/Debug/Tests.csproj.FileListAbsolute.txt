@@ -21,3 +21,7 @@ C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSi
 C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSimulator\Tests\obj\Debug\Tests.csproj.CoreCompileInputs.cache
 C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSimulator\Tests\obj\Debug\Tests.dll
 C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSimulator\Tests\obj\Debug\Tests.pdb
+C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSimulator\Tests\bin\Debug\Tests.dll.config
+C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSimulator\Tests\bin\Debug\LiveCharts.dll
+C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSimulator\Tests\bin\Debug\LiveCharts.pdb
+C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSimulator\Tests\bin\Debug\LiveCharts.xml

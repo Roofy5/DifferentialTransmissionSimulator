@@ -10,9 +10,9 @@
 
     <Grid>
         <StackPanel>
-            <TextBlock Text="Byte to send:" />
-            <TextBox Text="{Binding DataToSend}"/>
-            <Button Content="TEST" Command="{Binding TestCommand}" />
+            <TextBlock Text="Przesyłany znak:" />
+            <TextBox MaxLength="1" Text="{Binding DataToSend}"/>
+            <TextBlock Text="{Binding NumberCode}" />
         </StackPanel>        
     </Grid>
 </UserControl>

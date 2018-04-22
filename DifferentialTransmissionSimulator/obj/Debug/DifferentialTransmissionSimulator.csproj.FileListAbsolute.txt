@@ -39,7 +39,6 @@ C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSi
 C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSimulator\DifferentialTransmissionSimulator\obj\Debug\View\InterferenceChartView.baml
 C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSimulator\DifferentialTransmissionSimulator\obj\Debug\View\BitsChart2View.g.cs
 C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSimulator\DifferentialTransmissionSimulator\obj\Debug\View\BitsChart2View.baml
-C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSimulator\DifferentialTransmissionSimulator\obj\Debug\DifferentialTransmissionSimulator.csprojResolveAssemblyReference.cache
 C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSimulator\DifferentialTransmissionSimulator\obj\Debug\View\BitsChart1View.g.cs
 C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSimulator\DifferentialTransmissionSimulator\obj\Debug\View\BitsChart1View.baml
 C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSimulator\DifferentialTransmissionSimulator\obj\Debug\View\BitsChartOut1View.g.cs
@@ -48,3 +47,6 @@ C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSi
 C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSimulator\DifferentialTransmissionSimulator\obj\Debug\View\BitsChartOut2View.baml
 C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSimulator\DifferentialTransmissionSimulator\obj\Debug\View\OutputChartView.g.cs
 C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSimulator\DifferentialTransmissionSimulator\obj\Debug\View\OutputChartView.baml
+C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSimulator\DifferentialTransmissionSimulator\obj\Debug\View\OutputView.g.cs
+C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSimulator\DifferentialTransmissionSimulator\obj\Debug\View\OutputView.baml
+C:\Users\Michal\Documents\Visual Studio 2017\Projects\DifferentialTransmissionSimulator\DifferentialTransmissionSimulator\obj\Debug\DifferentialTransmissionSimulator.csprojResolveAssemblyReference.cache

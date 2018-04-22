@@ -4,6 +4,7 @@ using DifferentialTransmissionSimulator.Model.Interferences;
 using DifferentialTransmissionSimulator.Model.InterferencesSimulators;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,12 +32,14 @@ namespace DifferentialTransmissionSimulator.ViewModel
         {
             GetTheData();
             string data = _locator.DataToSendViewModel.DataToSend;
+            if (String.IsNullOrEmpty(data))
+                return;
             var tranlsatedData = _translator.ToBits(data[0].ToString());
 
             IList<double> bits = new List<double>();
             foreach (var bit in tranlsatedData)
                 bits.Add(bit);
-            bits.Add(bits.Last());
+            //bits.Add(bits.Last());
 
             IList<double> bitsInverted = InvertBits(tranlsatedData);// new List<double>();
             /*foreach (var bit in tranlsatedData)
@@ -64,12 +67,19 @@ namespace DifferentialTransmissionSimulator.ViewModel
             _locator.OutputChartViewModel.Values.AddRange(_signalOperator.Add(
                 _locator.BitsChartOut1ViewModel.Values,
                 InvertBits(_locator.BitsChartOut2ViewModel.Values)));
+
+            _locator.OutputViewModel.OutData = _translator.FromBits(_locator.OutputChartViewModel.Values.ToIntArray());
+
+            if (_locator.OutputViewModel.OutData.Equals(_locator.DataToSendViewModel.DataToSend))
+                _locator.OutputViewModel.SuccessCount++;
+            else
+                _locator.OutputViewModel.FailCount++;
         }
         private void GetTheData()
         {
             _translator = new Utf8Translator();
-            _interference = _locator.InterferenceViewModel.SelectedInterference;
-            _interferenceCalculator = new SumCalculator(-0.5, 0.5);
+            _interference = _locator.InterferenceViewModel.SelectedInterferenceChanger;
+            _interferenceCalculator = new SumCalculator(-0.8, 0.8);
             _interferenceSimulator = new InterferenceSimulator(_interference,
                 _interferenceCalculator,
                 _locator.InterferenceViewModel.Frequency, //TODO change this to Dependency Injection?
@@ -81,7 +91,7 @@ namespace DifferentialTransmissionSimulator.ViewModel
             IList<double> bitsInverted = new List<double>();
             foreach (var bit in bits)
                 bitsInverted.Add(bit == 0 ? 1 : 0);
-            bitsInverted.Add(bitsInverted.Last());
+            //bitsInverted.Add(bitsInverted.Last());
             return bitsInverted;
         }
         private IList<double> InvertBits(IEnumerable<double> bits)
@@ -89,7 +99,7 @@ namespace DifferentialTransmissionSimulator.ViewModel
             IList<double> bitsInverted = new List<double>();
             foreach (var bit in bits)
                 bitsInverted.Add(bit <= 1e-9 ? 1 : 0);
-            bitsInverted.Add(bitsInverted.Last());
+            //bitsInverted.Add(bitsInverted.Last());
             return bitsInverted;
         }
     }

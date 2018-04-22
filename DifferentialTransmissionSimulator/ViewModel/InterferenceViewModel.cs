@@ -1,4 +1,5 @@
 ﻿using DifferentialTransmissionSimulator.Model.Interferences;
+using DifferentialTransmissionSimulator.Model.Interferences.Decorators;
 using GalaSoft.MvvmLight;
 using System;
 using System.Collections.Generic;
@@ -35,15 +36,53 @@ namespace DifferentialTransmissionSimulator.ViewModel
             set { _time = value; }
         }
 
+        private IEnumerable<IInterferenceDecorator> _interferencesChanger;
+        public IEnumerable<IInterferenceDecorator> InterferencesChanger
+        {
+            get { return _interferencesChanger; }
+            set { _interferencesChanger = value; RaisePropertyChanged(nameof(InterferencesChanger)); }
+        }
+        private IInterferenceDecorator _selectedInterferenceChanger;
+        public IInterferenceDecorator SelectedInterferenceChanger
+        {
+            get { return _selectedInterferenceChanger; }
+            set
+            {
+                _selectedInterferenceChanger = value;
+                _selectedInterferenceChanger.DecoratedInterference = _selectedInterference;
+                RaisePropertyChanged(nameof(SelectedInterferenceChanger));
+            }
+        }
+        private int _percentage;
+        public int Percentage
+        {
+            get { return _percentage; }
+            set
+            {
+                _percentage = value;
+                SelectedInterferenceChanger.Data = _percentage;
+                RaisePropertyChanged(nameof(Percentage));
+                RaisePropertyChanged(nameof(SelectedInterferenceChanger));
+            }
+        }
+
+
         public InterferenceViewModel()
         {
-            Interferences= new List<IInterference>()
+            Interferences = new List<IInterference>()
             {
                 new SinusInterference()
             };
             SelectedInterference = Interferences.First();
             Frequency = 1;
             Time = 10;
+
+            InterferencesChanger = new List<IInterferenceDecorator>()
+            {
+                new NonDecorator(),
+                new PercentageDecorator()
+            };
+            SelectedInterferenceChanger = InterferencesChanger.First();
         }
     }
 }

@@ -11,7 +11,7 @@ namespace DifferentialTransmissionSimulator.Model.BitsTranslator
     {
         public string FromBits(int[] value)
         {
-            if (value == null || value.Length != 16)
+            if (value == null || value.Length < 8)
                 throw new ArgumentException("Value is not allowed");
 
             BitArray array = new BitArray(value.Length);

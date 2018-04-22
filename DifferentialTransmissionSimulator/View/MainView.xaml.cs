@@ -23,5 +23,9 @@ namespace DifferentialTransmissionSimulator.View
         {
             InitializeComponent();
         }
+        private void DataToSendView_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

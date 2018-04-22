@@ -42,6 +42,14 @@ namespace DifferentialTransmissionSimulator.Model.InterferencesSimulators
                 splittedData.Add(singleChunk);
             }
 
+            var lastChunk = new List<double>();
+            for (int j = (chunks) * valuesPerChunk; j < interferencedData.Length; j++)
+            {
+                lastChunk.Add(interferencedData[j]);
+            }
+            if (lastChunk.Count > 0)
+                splittedData.Add(lastChunk);
+
             return _calculator.Calculate(cableBits, splittedData);
             //Podzielic na chunki ( w zaleznosci od ildosci bitow)
             //Do zaklocen zrobic dekoratora (procentowe zmiany w zakloceniach)

@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight;
+﻿using DifferentialTransmissionSimulator.Model;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
@@ -15,20 +16,23 @@ namespace DifferentialTransmissionSimulator.ViewModel
         public string DataToSend
         {
             get { return _dataToSend; }
-            set { _dataToSend = value; RaisePropertyChanged(nameof(DataToSend)); }
+            set
+            {
+                _dataToSend = value;
+                NumberCode = _dataToSend.ToIntString();
+                RaisePropertyChanged(nameof(DataToSend));
+            }
         }
-
-        public ICommand TestCommand { get; }
+        private string _numberCode;
+        public string NumberCode
+        {
+            get { return _numberCode; }
+            set { _numberCode = "U+" + value; RaisePropertyChanged(nameof(NumberCode)); }
+        }
 
         public DataToSendViewModel()
         {
-            TestCommand = new RelayCommand(Test);
-            DataToSend = "SAD";
-        }
-        private void Test()
-        {
-            ViewModelLocator locator = App.Current.FindResource("Locator") as ViewModelLocator;
-            locator.BitsChart1ViewModel.Values = new LiveCharts.ChartValues<double>() { 2, 3, 3 };
+            DataToSend = String.Empty;
         }
     }
 }

@@ -21,7 +21,8 @@ namespace DifferentialTransmissionSimulator.Model.InterferencesSimulators
             List<double> result = new List<double>();
             for (int bit = 0; bit < cableBits.Count(); bit++)
             {
-                double sumOfValues = 0.0;
+                double sumOfValues = cableBits.ElementAt(bit);
+                //double sumOfValues = 0.0;
                 foreach (double value in interferencedData.ElementAt(bit))
                 {
                     sumOfValues += value;

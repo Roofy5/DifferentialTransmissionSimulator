@@ -21,5 +21,15 @@
             <TextBlock Text="Czas: " />
             <TextBox Text="{Binding Time}" />
         </WrapPanel>
+
+        <TextBlock Margin="0,5,0,0" Text="Losowość:" />
+        <ComboBox 
+            ItemsSource="{Binding InterferencesChanger}" 
+            DisplayMemberPath="Name"
+            SelectedItem="{Binding SelectedInterferenceChanger}"/>
+        <WrapPanel>
+            <TextBlock Text="Procent zmiany: " />
+            <TextBox Text="{Binding Percentage}" />
+        </WrapPanel>
     </StackPanel>
 </UserControl>

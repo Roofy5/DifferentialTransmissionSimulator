@@ -80,10 +80,14 @@
     <Compile Include="Model\BitsTranslator\ITranslator.cs" />
     <Compile Include="Model\BitsTranslator\AsciiTranslator.cs" />
     <Compile Include="Model\BitsTranslator\Utf8Translator.cs" />
+    <Compile Include="Model\CastsHelper.cs" />
     <Compile Include="Model\InterferencesSimulators\ICalculator.cs" />
     <Compile Include="Model\InterferencesSimulators\InterferenceSimulator.cs" />
     <Compile Include="Model\InterferencesSimulators\ISimulator.cs" />
     <Compile Include="Model\InterferencesSimulators\SumCalculator.cs" />
+    <Compile Include="Model\Interferences\Decorators\IInterferenceDecorator.cs" />
+    <Compile Include="Model\Interferences\Decorators\NonDecorator.cs" />
+    <Compile Include="Model\Interferences\Decorators\PercentageDecorator.cs" />
     <Compile Include="Model\Interferences\IInterference.cs" />
     <Compile Include="Model\Interferences\SinusInterference.cs" />
     <Compile Include="Model\ISignalOperator.cs" />
@@ -92,6 +96,7 @@
     <Compile Include="ViewModel\DataToSendViewModel.cs" />
     <Compile Include="ViewModel\InterferenceViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\OutputViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\BitsChart2View.xaml.cs">
       <DependentUpon>BitsChart2View.xaml</DependentUpon>
@@ -123,6 +128,9 @@
     </Compile>
     <Compile Include="View\OutputChartView.xaml.cs">
       <DependentUpon>OutputChartView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\OutputView.xaml.cs">
+      <DependentUpon>OutputView.xaml</DependentUpon>
     </Compile>
     <Page Include="View\BitsChart2View.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -157,6 +165,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\OutputChartView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\OutputView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

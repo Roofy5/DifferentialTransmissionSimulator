@@ -6,12 +6,13 @@
         xmlns:local="clr-namespace:DifferentialTransmissionSimulator.View"
         xmlns:v="clr-namespace:DifferentialTransmissionSimulator.View"
         mc:Ignorable="d"
-        Title="MainView" Height="300" Width="300">
+        Title="MainView" Height="300" Width="900">
     <DockPanel LastChildFill="True" DataContext="{Binding MainViewModel, Source={StaticResource Locator}}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <!--<Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -20,20 +21,28 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>-->
 
-            <StackPanel Grid.Column="0" Margin="2,2,10,2">
-                <v:DataToSendView Margin="0,0,0,5"/>
+            <StackPanel Grid.Column="0" Margin="10,2,10,2">
+                <v:DataToSendView Margin="0,0,0,5" Loaded="DataToSendView_Loaded"/>
                 <v:InterferenceView Margin="0,0,0,5"/>
                 <Button Content="START" Command="{Binding StartCommand}" />
             </StackPanel>
-            <StackPanel Grid.Column="1" Margin="0,0,2,0">
-                <v:BitsChart1View Margin="0,0,0,50" Height="100"/>
-                <v:BitsChart2View Margin="0,0,0,50" Height="100"/>
-                <v:InterferenceChartView Margin="0,0,0,50" Height="200"/>
-                <v:BitsChartOut1View Margin="0,0,0,50" Height="100"/>
-                <v:BitsChartOut2View Margin="0,0,0,50" Height="100"/>
-                <v:OutputChartView Margin="0,0,0,50" Height="100"/>
+            <StackPanel Grid.Column="1" Margin="0,0,10,0">
+                <TextBlock Text="Przewód A:" />
+                <v:BitsChart1View Margin="0,2,0,50" Height="100"/>
+                <TextBlock Text="Przewód B:" />
+                <v:BitsChart2View Margin="0,2,0,20" Height="100"/>
+                <TextBlock Text="Zakłócenia:" />
+                <v:InterferenceChartView Margin="0,2,0,20" Height="200"/>
+                <TextBlock Text="Przewód A zakłócony:" />
+                <v:BitsChartOut1View Margin="0,2,0,20" Height="100"/>
+                <TextBlock Text="Przewód B zakłócony:" />
+                <v:BitsChartOut2View Margin="0,2,0,50" Height="100"/>
+                <TextBlock Text="Wyjście:" />
+                <v:OutputChartView Margin="0,2,0,20" Height="100"/>
             </StackPanel>
-
+            <StackPanel Grid.Column="2" Margin="0,2,10,2">
+                <v:OutputView Margin="0,0,0,5" />
+            </StackPanel>
         </Grid>
     </DockPanel>
 </Window>

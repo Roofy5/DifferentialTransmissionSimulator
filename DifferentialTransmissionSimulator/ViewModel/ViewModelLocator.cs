@@ -51,6 +51,7 @@ namespace DifferentialTransmissionSimulator.ViewModel
             SimpleIoc.Default.Register<BitsChartOut2ViewModel>();
             SimpleIoc.Default.Register<InterferenceChartViewModel>();
             SimpleIoc.Default.Register<OutputChartViewModel>();
+            SimpleIoc.Default.Register<OutputViewModel>();
         }
 
         public MainViewModel MainViewModel
@@ -91,6 +92,10 @@ namespace DifferentialTransmissionSimulator.ViewModel
         public OutputChartViewModel OutputChartViewModel
         {
             get { return ServiceLocator.Current.GetInstance<OutputChartViewModel>(); }
+        }
+        public OutputViewModel OutputViewModel
+        {
+            get { return ServiceLocator.Current.GetInstance<OutputViewModel>(); }
         }
         public static void Cleanup()
         {
