@@ -1,5 +1,6 @@
 using DifferentialTransmissionSimulator.Model;
 using DifferentialTransmissionSimulator.Model.BitsTranslator;
+using DifferentialTransmissionSimulator.Model.Converter;
 using DifferentialTransmissionSimulator.Model.Interferences;
 using DifferentialTransmissionSimulator.Model.InterferencesSimulators;
 using GalaSoft.MvvmLight;
@@ -19,6 +20,7 @@ namespace DifferentialTransmissionSimulator.ViewModel
         private ISimulator _interferenceSimulator;
         private ICalculator _interferenceCalculator;
         private ISignalOperator _signalOperator;
+        private IConverter _signalConverter;
         private ViewModelLocator _locator;
         public ICommand StartCommand { get; }
 
@@ -64,9 +66,11 @@ namespace DifferentialTransmissionSimulator.ViewModel
             _locator.BitsChartOut2ViewModel.Values.AddRange(_interferenceSimulator.Interrupt(bitsInverted));
 
             _locator.OutputChartViewModel.Values.Clear();
-            _locator.OutputChartViewModel.Values.AddRange(_signalOperator.Add(
-                _locator.BitsChartOut1ViewModel.Values,
-                InvertBits(_locator.BitsChartOut2ViewModel.Values)));
+            _locator.OutputChartViewModel.Values.AddRange(
+                _signalConverter.FromAnalog(bits.Count,
+                    _signalOperator.Add(
+                    _locator.BitsChartOut1ViewModel.Values,
+                    InvertBits(_locator.BitsChartOut2ViewModel.Values))));
 
             _locator.OutputViewModel.OutData = _translator.FromBits(_locator.OutputChartViewModel.Values.ToIntArray());
 
@@ -79,12 +83,14 @@ namespace DifferentialTransmissionSimulator.ViewModel
         {
             _translator = new Utf8Translator();
             _interference = _locator.InterferenceViewModel.SelectedInterferenceChanger;
-            _interferenceCalculator = new SumCalculator(-0.8, 0.8);
+            _interferenceCalculator = new AnalogSumCalculator();//new SumCalculator(-0.8, 0.8);
             _interferenceSimulator = new InterferenceSimulator(_interference,
                 _interferenceCalculator,
                 _locator.InterferenceViewModel.Frequency, //TODO change this to Dependency Injection?
                 _locator.InterferenceViewModel.Time);
             _signalOperator = new StandardSignalOperator();
+            //_signalConverter = new StandardConverter();
+            _signalConverter = new AverageConverter(0.5, 0.5);
         }
         private IList<double> InvertBits(int[] bits)
         {

@@ -11,12 +11,18 @@
     <Grid>
         <wpf:CartesianChart Hoverable="False" DataTooltip="{x:Null}">
             <wpf:CartesianChart.AxisY>
-                <wpf:Axis MinValue="0" MaxValue="1" />
+                <wpf:Axis MinValue="-2" MaxValue="2" />
             </wpf:CartesianChart.AxisY>
             <wpf:CartesianChart.Series>
-                <wpf:StepLineSeries Values="{Binding Values}"
+                <!--<wpf:StepLineSeries Values="{Binding Values}"
                                     DataLabels="False"
-                                    StrokeThickness="3"/>
+                                    StrokeThickness="3"/>-->
+                <wpf:LineSeries Values="{Binding Values}"
+                                DataLabels="False"
+                                PointGeometry="{x:Null}" 
+                                Stroke="Blue"
+                                Fill="Transparent"
+                                StrokeThickness="3"/>
             </wpf:CartesianChart.Series>
         </wpf:CartesianChart>
     </Grid>

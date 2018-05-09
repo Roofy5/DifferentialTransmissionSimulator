@@ -81,6 +81,10 @@
     <Compile Include="Model\BitsTranslator\AsciiTranslator.cs" />
     <Compile Include="Model\BitsTranslator\Utf8Translator.cs" />
     <Compile Include="Model\CastsHelper.cs" />
+    <Compile Include="Model\Converter\IConverter.cs" />
+    <Compile Include="Model\Converter\AverageConverter.cs" />
+    <Compile Include="Model\Converter\StandardConverter.cs" />
+    <Compile Include="Model\InterferencesSimulators\AnalogSumCalculator.cs" />
     <Compile Include="Model\InterferencesSimulators\ICalculator.cs" />
     <Compile Include="Model\InterferencesSimulators\InterferenceSimulator.cs" />
     <Compile Include="Model\InterferencesSimulators\ISimulator.cs" />
