@@ -9,10 +9,12 @@
              DataContext="{Binding DataToSendViewModel,Source={StaticResource Locator}}">
 
     <Grid>
-        <StackPanel>
-            <TextBlock Text="Przesyłany znak:" />
-            <TextBox MaxLength="1" Text="{Binding DataToSend}"/>
-            <TextBlock Text="{Binding NumberCode}" />
-        </StackPanel>        
+        <Border Style="{StaticResource MyBorder}">
+            <StackPanel>
+                <TextBlock Text="Przesyłany znak:" />
+                <TextBox MaxLength="1" Text="{Binding DataToSend}"/>
+                <TextBlock Text="{Binding NumberCode}" />
+            </StackPanel>
+        </Border>
     </Grid>
 </UserControl>

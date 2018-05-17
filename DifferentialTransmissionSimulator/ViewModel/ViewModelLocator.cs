@@ -52,6 +52,8 @@ namespace DifferentialTransmissionSimulator.ViewModel
             SimpleIoc.Default.Register<InterferenceChartViewModel>();
             SimpleIoc.Default.Register<OutputChartViewModel>();
             SimpleIoc.Default.Register<OutputViewModel>();
+            SimpleIoc.Default.Register<DistanceViewModel>();
+            SimpleIoc.Default.Register<TimeViewModel>();
         }
 
         public MainViewModel MainViewModel
@@ -96,6 +98,14 @@ namespace DifferentialTransmissionSimulator.ViewModel
         public OutputViewModel OutputViewModel
         {
             get { return ServiceLocator.Current.GetInstance<OutputViewModel>(); }
+        }
+        public DistanceViewModel DistanceViewModel
+        {
+            get { return ServiceLocator.Current.GetInstance<DistanceViewModel>(); }
+        }
+        public TimeViewModel TimeViewModel
+        {
+            get { return ServiceLocator.Current.GetInstance<TimeViewModel>(); }
         }
         public static void Cleanup()
         {

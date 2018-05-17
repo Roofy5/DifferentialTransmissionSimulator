@@ -51,9 +51,6 @@ namespace DifferentialTransmissionSimulator.Model.InterferencesSimulators
                 splittedData.Add(lastChunk);
 
             return _calculator.Calculate(cableBits, splittedData);
-            //Podzielic na chunki ( w zaleznosci od ildosci bitow)
-            //Do zaklocen zrobic dekoratora (procentowe zmiany w zakloceniach)
-            //kalkulator
             // TODO Check last bit?
         }
     }

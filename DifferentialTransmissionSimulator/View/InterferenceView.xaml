@@ -7,29 +7,31 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              DataContext="{Binding InterferenceViewModel,Source={StaticResource Locator}}">
-    <StackPanel>
-        <TextBlock Text="Zakłócenia: " />
-        <ComboBox 
-            ItemsSource="{Binding Interferences}" 
-            DisplayMemberPath="Name"
-            SelectedItem="{Binding SelectedInterference}"/>
-        <WrapPanel>
-            <TextBlock Text="Częstotliwość: " />
-            <TextBox Text="{Binding Frequency}" />
-        </WrapPanel>
-        <WrapPanel>
-            <TextBlock Text="Czas: " />
-            <TextBox Text="{Binding Time}" />
-        </WrapPanel>
+    <Border Style="{StaticResource MyBorder}">
+        <StackPanel>
+            <TextBlock Text="Zakłócenia: " />
+            <ComboBox 
+                ItemsSource="{Binding Interferences}" 
+                DisplayMemberPath="Name"
+                SelectedItem="{Binding SelectedInterference}"/>
+            <WrapPanel>
+                <TextBlock Text="Częstotliwość: " />
+                <TextBox Text="{Binding Frequency}" />
+            </WrapPanel>
+            <WrapPanel>
+                <TextBlock Text="Czas: " />
+                <TextBox Text="{Binding Time}" />
+            </WrapPanel>
 
-        <TextBlock Margin="0,5,0,0" Text="Losowość:" />
-        <ComboBox 
-            ItemsSource="{Binding InterferencesChanger}" 
-            DisplayMemberPath="Name"
-            SelectedItem="{Binding SelectedInterferenceChanger}"/>
-        <WrapPanel>
-            <TextBlock Text="Procent zmiany: " />
-            <TextBox Text="{Binding Percentage}" />
-        </WrapPanel>
-    </StackPanel>
+            <TextBlock Margin="0,5,0,0" Text="Losowość:" />
+            <ComboBox 
+                ItemsSource="{Binding InterferencesChanger}" 
+                DisplayMemberPath="Name"
+                SelectedItem="{Binding SelectedInterferenceChanger}"/>
+            <WrapPanel>
+                <TextBlock Text="Procent zmiany: " />
+                <TextBox Text="{Binding Percentage}" />
+            </WrapPanel>
+        </StackPanel>
+    </Border>
 </UserControl>
